@@ -16,7 +16,7 @@ list(APPEND _sources Message.cc)
 if(USE_LIB)
     add_library(message ${_sources})
     target_compile_options(message PRIVATE -O3)  # 多依赖的所有文件生效
-    set_source_files_properties(Message.cc PROPERTIES COMPILE_FLAGS -O2) # 单独指定某个文件的编译选项
+    set_source_files_properties(Message.cc PROPERTIES COMPILE_FLAGS -DDEBUG) # 单独指定某个文件的编译选项
     add_executable(test test.cc)
     # CXX_STANDARD会设置我们想要的标准。
     # CXX_EXTENSIONS告诉CMake，只启用ISO C++标准的编译器标志，而不使用特定编译器的扩展。
