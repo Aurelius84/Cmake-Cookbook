@@ -39,5 +39,9 @@ add_test(
 set_property(TEST test1 PROPERTY ENVIRONMENT
       LD_LIBRARY_PATH=aa)  # 这个被覆写了
 
+get_property(info TEST test1 PROPERTY ENVIRONMENT)
+message("${info}")
+
 set_property(TEST test1 PROPERTY ENVIRONMENT
-      LD_LIBRARY_PATH=bb xxx=) # 只有这个生效了
+      LD_LIBRARY_PATH=bb xxx= "${info}") # 只有这个生效了，但可以追加更新
+
